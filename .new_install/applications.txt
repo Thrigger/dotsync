@@ -1,0 +1,1 @@
+bat fd-find ripgrep vim cargo
