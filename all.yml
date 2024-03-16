@@ -1,0 +1,21 @@
+- name: New install
+  hosts: localhost
+  become: true
+  
+  tasks:
+  - name: Install applications
+    ansible.builtin.dnf:
+      name: [ bat, fd-find, ripgrep, vim ]
+      state: present
+
+  - name: Set git confgi
+    ansible.builtin.git_config:
+      name: "{{ item.name }}"
+      scope: system
+      value: "{{ item.value }}"
+    loop:
+      - { name: 'alias.st', value: 'status' }
+      - { name: 'core.editor', value: 'vim' }
+      - { name: 'user.name', value: 'Thrigger' }
+      - { name: 'user.email', value: '21341498+Thrigger@users.noreply.github.com' }
+
