@@ -5,7 +5,7 @@
   tasks:
   - name: Install applications
     ansible.builtin.dnf:
-      name: [ bat, fd-find, ripgrep, vim ]
+      name: [ mullvad-vpn, bat, fd-find, ripgrep, vim, gcc, i3, git ]
       state: present
 
   - name: Set git confgi
@@ -15,6 +15,8 @@
       value: "{{ item.value }}"
     loop:
       - { name: 'alias.st', value: 'status' }
+      - { name: 'alias.l', value: 'log -30 --all --graph --decorate --oneline' }
+      - { name: 'alias.log', value: 'log -1 HEAD' }
       - { name: 'core.editor', value: 'vim' }
       - { name: 'user.name', value: 'Thrigger' }
       - { name: 'user.email', value: '21341498+Thrigger@users.noreply.github.com' }
