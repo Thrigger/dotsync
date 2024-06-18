@@ -15,3 +15,9 @@ Run ```./new.sh```
 ```curl -sS https://starship.rs/install.sh | sh```
 
 ```echo 'eval "$(starship init bash)"' >> ~/.bashrc```
+
+## TODO
+
+* se till att new.sh inte körs om den redan är körd
+* testa allacritty
+* testa ranger
