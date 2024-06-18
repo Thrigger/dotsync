@@ -5,7 +5,7 @@
   tasks:
   - name: Install applications
     ansible.builtin.dnf:
-      name: [ mullvad-vpn, bat, fd-find, ripgrep, vim, gcc, i3, git, feh ]
+      name: [ mullvad-vpn, bat, fd-find, ripgrep, vim, gcc, i3, git, feh, brightnessctl, fzf, pasystray  ]
       state: present
 
   - name: Set git confgi
@@ -16,6 +16,7 @@
     loop:
       - { name: 'alias.st', value: 'status' }
       - { name: 'alias.l', value: 'log -30 --all --graph --decorate --oneline' }
+      - { name: 'alias.f', value: '!git log -30 --oneline | fzf | cut -c -7 | xargs -o git commit --fixup' }
       - { name: 'alias.log', value: 'log -1 HEAD' }
       - { name: 'alias.ri', value: 'rebase -i --auto-squash' }
       - { name: 'alias.rim', value: 'rebase -i --auto-squash main' }
