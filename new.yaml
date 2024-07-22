@@ -5,7 +5,7 @@
   tasks:
   - name: Install applications
     ansible.builtin.dnf:
-      name: [ mullvad-vpn, bat, fd-find, ripgrep, vim, gcc, i3, git, feh, brightnessctl, fzf, pasystray  ]
+      name: [ mullvad-vpn, bat, fd-find, ripgrep, vim, gcc, i3, git, feh, brightnessctl, fzf, pasystray, arandr, gimp, inkscap ]
       state: present
 
   - name: Set git confgi
