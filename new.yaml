@@ -1,26 +1,46 @@
 - name: New install
   hosts: localhost
   become: true
-  
+
   tasks:
-  - name: Install applications
-    ansible.builtin.dnf:
-      name: [ mullvad-vpn, bat, fd-find, ripgrep, vim, gcc, i3, git, feh, brightnessctl, fzf, pasystray, arandr, gimp, inkscap ]
-      state: present
+    - name: Install applications
+      ansible.builtin.dnf:
+        name: [mullvad-vpn, bat, fd-find, ripgrep, vim, gcc, i3, git, feh, brightnessctl, fzf, pasystray, arandr, gimp, inkscape, pip]
+        state: present
 
-  - name: Set git confgi
-    ansible.builtin.git_config:
-      name: "{{ item.name }}"
-      scope: system
-      value: "{{ item.value }}"
-    loop:
-      - { name: 'alias.st', value: 'status' }
-      - { name: 'alias.l', value: 'log -30 --all --graph --decorate --oneline' }
-      - { name: 'alias.f', value: '!git log -30 --oneline | fzf | cut -c -7 | xargs -o git commit --fixup' }
-      - { name: 'alias.log', value: 'log -1 HEAD' }
-      - { name: 'alias.ri', value: 'rebase -i --auto-squash' }
-      - { name: 'alias.rim', value: 'rebase -i --auto-squash main' }
-      - { name: 'core.editor', value: 'vim' }
-      - { name: 'user.name', value: 'Thrigger' }
-      - { name: 'user.email', value: '21341498+Thrigger@users.noreply.github.com' }
+    - name: Create .bashrc.d dir
+      ansible.builtin.file:
+        path: "{{ lookup('env', 'HOME') }}/.bashrc.d"
+        state: directory
+        owner: '{{ ansible_facts["user_id"] }}'
+        group: '{{ ansible_facts["user_id"] }}'
+        mode: '0755'
 
+    - name: Copy dotfiles
+      ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: "{{ lookup('env', 'HOME') }}/{{ item }}"
+        owner: '{{ ansible_facts["user_id"] }}'
+        group: '{{ ansible_facts["user_id"] }}'
+        mode: '0644'
+      loop:
+        - ".bashrc.d/"
+        - ".vimrc"
+
+    - name: Set git confgi
+      community.general.git_config:
+        name: "{{ item.name }}"
+        scope: system
+        value: "{{ item.value }}"
+      loop:
+        - { name: 'alias.st', value: 'status' }
+        - { name: 'alias.sw', value: 'switch' }
+        - { name: 'alias.swm', value: 'switch main' }
+        - { name: 'alias.l', value: 'log -30 --all --graph --decorate --oneline' }
+        - { name: 'alias.f', value: '!git log -30 --oneline | fzf | cut -c -7 | xargs -o git commit --fixup' }
+        - { name: 'alias.log', value: 'log -1 HEAD' }
+        - { name: 'alias.ri', value: 'rebase -i --auto-squash' }
+        - { name: 'alias.rim', value: 'rebase -i --auto-squash main' }
+        - { name: 'core.editor', value: 'vim' }
+        - { name: 'user.name', value: 'Thrigger' }
+        - { name: 'user.email', value: '21341498+Thrigger@users.noreply.github.com' }

@@ -1,5 +1,3 @@
-sudo dnf install ansible
-cat .bashrc >> ~/.bashrc
-cat .vimrc >> ~/.vimrc
+sudo dnf install -y ansible
 cat .i3 >> ~/.config/i3/config
-ansible-playbook new.yml
+ansible-playbook new.yaml --ask-become
