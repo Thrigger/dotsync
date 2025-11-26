@@ -27,7 +27,7 @@
         - ".bashrc.d/"
         - ".vimrc"
 
-    - name: Set git confgi
+    - name: Set git config
       community.general.git_config:
         name: "{{ item.name }}"
         scope: system
@@ -39,8 +39,10 @@
         - { name: 'alias.l', value: 'log -30 --all --graph --decorate --oneline' }
         - { name: 'alias.f', value: '!git log -30 --oneline | fzf | cut -c -7 | xargs -o git commit --fixup' }
         - { name: 'alias.log', value: 'log -1 HEAD' }
-        - { name: 'alias.ri', value: 'rebase -i --auto-squash' }
-        - { name: 'alias.rim', value: 'rebase -i --auto-squash main' }
+        - { name: 'alias.ri', value: 'rebase -i --autosquash' }
+        - { name: 'alias.rim', value: 'rebase -i --autosquash main' }
+        - { name: 'alias.abort', value: 'rebase --abort' }
+        - { name: 'alias.cont', value: 'rebase --continue' }
         - { name: 'core.editor', value: 'vim' }
         - { name: 'user.name', value: 'Thrigger' }
         - { name: 'user.email', value: '21341498+Thrigger@users.noreply.github.com' }
