@@ -23,9 +23,10 @@
         owner: '{{ ansible_facts["user_id"] }}'
         group: '{{ ansible_facts["user_id"] }}'
         mode: '0644'
+        force: false
       loop:
         - ".bashrc.d/"
-        - ".vimrc"
+        - ".config/"
 
     - name: Set git config
       community.general.git_config:
