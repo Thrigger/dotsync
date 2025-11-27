@@ -25,7 +25,7 @@
         mode: '0644'
       loop:
         - ".bashrc.d/"
-        - ".vimrc"
+        - ".config/"
 
     - name: Set git config
       community.general.git_config:

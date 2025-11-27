@@ -19,5 +19,4 @@ Run ```./new.sh```
 ## TODO
 
 * se till att new.sh inte körs om den redan är körd
-* testa allacritty
 * testa ranger
