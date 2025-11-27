@@ -5,7 +5,25 @@
   tasks:
     - name: Install applications
       ansible.builtin.dnf:
-        name: [mullvad-vpn, bat, fd-find, ripgrep, vim, gcc, i3, git, feh, brightnessctl, fzf, pasystray, arandr, gimp, inkscape, pip]
+        name:
+          - mullvad-vpn
+          - bat
+          - fd-find
+          - ripgrep
+          - vim
+          - gcc
+          - sway
+          - git
+          - feh
+          - brightnessctl
+          - fzf
+          - pasystray
+          - wdisplays
+          - kanshi
+          - gimp
+          - inkscape
+          - pip
+          - ansible-lint
         state: present
 
     - name: Create .bashrc.d dir
@@ -46,3 +64,9 @@
         - { name: 'core.editor', value: 'vim' }
         - { name: 'user.name', value: 'Thrigger' }
         - { name: 'user.email', value: '21341498+Thrigger@users.noreply.github.com' }
+
+    - name: Start kanshi
+      ansible.builtin.systemd_service:
+        name: kanshi
+        state: started
+        scope: user
