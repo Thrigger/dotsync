@@ -1,6 +1,5 @@
 - name: New install
   hosts: localhost
-  become: true
 
   tasks:
     - name: Install applications
@@ -25,6 +24,7 @@
           - pip
           - ansible-lint
         state: present
+      become: true
 
     - name: Create .bashrc.d dir
       ansible.builtin.file:
