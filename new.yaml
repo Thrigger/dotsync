@@ -1,12 +1,12 @@
 - name: New install
   hosts: localhost
-  become: true
 
   tasks:
     - name: Install applications
       ansible.builtin.dnf:
         name: [mullvad-vpn, bat, fd-find, ripgrep, vim, gcc, i3, git, feh, brightnessctl, fzf, pasystray, arandr, gimp, inkscape, pip]
         state: present
+      become: true
 
     - name: Create .bashrc.d dir
       ansible.builtin.file:
