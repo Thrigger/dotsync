@@ -46,6 +46,7 @@
       loop:
         - ".bashrc.d/"
         - ".config/"
+        - ".ssh/"
 
     - name: Set git config
       community.general.git_config:
