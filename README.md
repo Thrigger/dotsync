@@ -18,7 +18,7 @@ Run ```./new.sh```
 
 ## Flera skärmar
 
-Kanshi är en systemd service för att sköta flera skärmar för wayland. För att confa kanshi så ändra ~/.config/kanshi/config med relevanta profiler. För att se vilka skärmar som är inkopplade så kan man använda "swaymsg -t get-outputs" eller wdisplays. Man 5 kanshi är också bra för mer avancerade profiler.
+Kanshi är en systemd service för att sköta flera skärmar för wayland. För att confa kanshi så ändra ~/.config/kanshi/config med relevanta profiler. För att se vilka skärmar som är inkopplade så kan man använda "swaymsg -t get_outputs" eller wdisplays. Man 5 kanshi är också bra för mer avancerade profiler.
 
 ## TODO
 
