@@ -24,7 +24,7 @@ if [ ! -f ~/.config/kanshi/config ]; then
 fi
 
 # Starship
-if ! grep -q starship ~/.bashrc; then
+if ! grep -q "starship" ~/.bashrc; then
   cargo install starship
   echo 'eval "$(starship init bash)"' >> ~/.bashrc
 fi
