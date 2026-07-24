@@ -68,5 +68,7 @@
     - name: Start kanshi
       ansible.builtin.systemd_service:
         name: kanshi
+        enabled: true
         state: started
+        daemon-reload: true
         scope: user
