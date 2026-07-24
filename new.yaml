@@ -13,6 +13,7 @@
           - gcc
           - sway
           - git
+          - git-lfs
           - feh
           - brightnessctl
           - fzf
@@ -23,6 +24,7 @@
           - inkscape
           - pip
           - ansible-lint
+          - shellcheck
         state: present
       become: true
 
