@@ -65,6 +65,8 @@
         - { name: 'alias.rim', value: 'rebase -i --autosquash main' }
         - { name: 'alias.abort', value: 'rebase --abort' }
         - { name: 'alias.cont', value: 'rebase --continue' }
+        - { name: 'alias.d', value: 'diff' }
+        - { name: 'alias.dm', value: 'diff main' }
         - { name: 'core.editor', value: 'vim' }
         - { name: 'user.name', value: 'Thrigger' }
         - { name: 'user.email', value: '21341498+Thrigger@users.noreply.github.com' }
